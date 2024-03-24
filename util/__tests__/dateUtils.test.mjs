@@ -1,3 +1,6 @@
+import { strictEqual } from 'node:assert';
+import { describe, it } from 'node:test';
+
 import { dateIsBetween } from '../dateUtils';
 
 describe('dateIsBetween', () => {
@@ -7,7 +10,7 @@ describe('dateIsBetween', () => {
 
     const result = dateIsBetween(startDate, endDate);
 
-    expect(result).toBe(true);
+    strictEqual(result, true);
   });
 
   it('returns false when the current date is not between start and end dates', () => {
@@ -16,15 +19,17 @@ describe('dateIsBetween', () => {
 
     const result = dateIsBetween(startDate, endDate);
 
-    expect(result).toBe(false);
+    strictEqual(result, false);
   });
 
   it('throws when either start or end date is invalid', () => {
     const invalidStartDate = 'Invalid Start Date';
     const validEndDate = '2024-01-01T00:00:00.000Z';
 
-    expect(() => dateIsBetween(invalidStartDate, validEndDate)).toThrow(
-      'dateIsBetween got called with invalid dates'
-    );
+    try {
+      dateIsBetween(invalidStartDate, validEndDate);
+    } catch (error) {
+      strictEqual(error.message, 'dateIsBetween got called with invalid dates');
+    }
   });
 });
