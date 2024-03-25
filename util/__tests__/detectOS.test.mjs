@@ -1,7 +1,7 @@
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import { detectOsInUserAgent } from '@/util/detectOS';
+import { detectOsInUserAgent } from '../detectOS.ts';
 
 const dataTest = [
   [

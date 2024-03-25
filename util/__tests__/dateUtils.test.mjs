@@ -1,7 +1,7 @@
 import { strictEqual } from 'node:assert';
 import { describe, it } from 'node:test';
 
-import { dateIsBetween } from '../dateUtils';
+import { dateIsBetween } from '../dateUtils.ts';
 
 describe('dateIsBetween', () => {
   it('returns true when the current date is between start and end dates', () => {
